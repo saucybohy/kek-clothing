@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:kek_clothing"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="1300" Width="800">
     <Window.Resources>
         
     </Window.Resources>
@@ -22,23 +22,26 @@
         </Grid.RowDefinitions>
 
         <!--<ListBox x:Name="listBox" ItemsSource="{Binding products}"/>-->
-
+        <ScrollViewer Background="{x:Null}">
         <ItemsControl x:Name="ProductGrid" ItemsSource="{Binding products}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate DataType = "{x:Type local:ProductModel}">
-                    <Grid Width="100" Height="100" Background="Red" Margin="5,5">
+                    
+                    <Grid Width="400" Height="400" Background="Beige" Margin="200,5,0,0">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height = "Auto" />
-                            <RowDefinition Height = "Auto" />
-                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="300"/>
+                            <RowDefinition Height = "25" />
+                            <RowDefinition Height = "25" />
+                            <RowDefinition Height="25" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <Label Name="nameLabel" Content="{Binding name}" Grid.Row="0"/>
-                        <Label Name="catLabel" Content="{Binding category}" Grid.Row="1"/>
-                        <Label Name="priceLabel" Content="{Binding price}" Grid.Row="2"/>
+                        <Label Name="nameLabel" Content="{Binding name}" Grid.Row="1"/>
+                        <Label Name="catLabel" Content="{Binding category}" Grid.Row="2"/>
+                        <Label Name="priceLabel" Content="{Binding price}" Grid.Row="3"/>
                     </Grid>
+             
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
             <ItemsControl.ItemsPanel>
@@ -47,8 +50,8 @@
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
-
-        <Button Content="Refresh" Click="Button_Click" Grid.Row="1" Margin="5,5"/>
+        </ScrollViewer>
+        <Button Content="Refresh" Width="400" Click="Button_Click" Grid.Row="1" Margin="10,0,380,0" />
 
         <DockPanel Grid.Row="2" Margin="5,5">
             <Label Content="Name:" HorizontalContentAlignment="Right" Width="70"/>
