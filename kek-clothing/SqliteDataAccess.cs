@@ -37,6 +37,7 @@ namespace kek_clothing
             {
                 cnn.Execute("insert into products (name, category, price) values (@name, @category, @price)", product);
             }
+
         }
 
         private static string LoadConnectionString(string id = "Default")

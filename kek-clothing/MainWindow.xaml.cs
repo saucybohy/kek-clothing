@@ -21,7 +21,7 @@ namespace kek_clothing
     public partial class MainWindow : Window
     {
         public ObservableCollection<ProductModel> products = new ObservableCollection<ProductModel>();
-      
+        string directory;
         public MainWindow()
         {
             InitializeComponent();
@@ -43,9 +43,12 @@ namespace kek_clothing
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+
             if(float.TryParse(PriceBox.Text, out float price))
             {
                 SqliteDataAccess.AddProduct(NameBox.Text, CategoryBox.Text, price);
+                int id = products[products.Count - 1].id;
+                //move file from dir to new dir with id.jpg as name
             }
             else
             {
@@ -65,7 +68,7 @@ namespace kek_clothing
             if (op.ShowDialog() == true)
             {
                 MessageBox.Show(op.FileName);
-                string directory = op.FileName;  
+                directory = op.FileName;  
             }
         }
     }
