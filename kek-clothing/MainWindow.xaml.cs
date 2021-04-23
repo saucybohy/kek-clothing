@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -16,9 +17,11 @@ using System.Windows.Shapes;
 
 namespace kek_clothing
 {
+
     public partial class MainWindow : Window
     {
         public ObservableCollection<ProductModel> products = new ObservableCollection<ProductModel>();
+      
         public MainWindow()
         {
             InitializeComponent();
@@ -49,6 +52,21 @@ namespace kek_clothing
                 MessageBox.Show("Please enter a valid price");
             }
             LoadProductList();
+        }
+        
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog op = new OpenFileDialog();
+            op.Title = "Select a picture";
+            op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+              "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+              "Portable Network Graphic (*.png)|*.png";
+            
+            if (op.ShowDialog() == true)
+            {
+                MessageBox.Show(op.FileName);
+                string directory = op.FileName;  
+            }
         }
     }
 }
