@@ -22,12 +22,13 @@ namespace kek_clothing
             }
         }
 
-        public static void AddProduct(string name, string category, float price)
+        public static void AddProduct(string name, string category, float price, string image)
         {
             ProductModel product = new ProductModel();
             product.name = name;
             product.category = category;
             product.price = price;
+            product.image = image;
             SaveProduct(product);
         }
 
@@ -35,7 +36,7 @@ namespace kek_clothing
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                cnn.Execute("insert into products (name, category, price) values (@name, @category, @price)", product);
+                cnn.Execute("insert into products (name, category, price, image) values (@name, @category, @price, @image)", product);
             }
 
         }

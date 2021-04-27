@@ -37,11 +37,11 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                          
+                            <Image Source=""/>
                             <Label Name="nameLabel" Content="{Binding name}" Grid.Row="1"/>
                             <Label Name="catLabel" Content="{Binding category}" Grid.Row="2"/>
                             <Label Name="priceLabel" Content="{Binding price}" Grid.Row="3"/>
-                            <Image Name="imgPhoto" Stretch="Fill" Grid.Column="1" />
+                            <Image Name="imgPhoto" Stretch="Fill" Source="{Binding image}" Grid.Column="1" />
                         </Grid>
 
                     </DataTemplate>
