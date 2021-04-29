@@ -49,7 +49,6 @@ namespace kek_clothing
                 string NewFile = System.IO.Directory.GetCurrentDirectory() + "/images/" + string.Format(@"{0}.txt", Guid.NewGuid()) + ".jpg";
                 SqliteDataAccess.AddProduct(NameBox.Text, CategoryBox.Text, price, NewFile);
                 int id = products[products.Count - 1].id;
-                //move file from dir to new dir with id.jpg as name
                 System.IO.File.Move(directory, NewFile);
             }
             else
@@ -73,5 +72,6 @@ namespace kek_clothing
                 directory = op.FileName;  
             }
         }
+      
     }
 }

@@ -20,9 +20,9 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-      
+
         <!--<ListBox x:Name="listBox" ItemsSource="{Binding products}"/>-->
-        <ScrollViewer Background="{x:Null}">
+        <ScrollViewer  Name="scrollViewer1" Margin="0,10,-30,30" Grid.RowSpan="2">
             <ItemsControl x:Name="ProductGrid" ItemsSource="{Binding products}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate DataType = "{x:Type local:ProductModel}">
@@ -30,18 +30,23 @@
                         <Grid Width="400" Height="400" Background="Beige" Margin="200,5,0,0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="300"/>
-                                <RowDefinition Height = "25" />
-                                <RowDefinition Height = "25" />
-                                <RowDefinition Height="25" />
+                                <RowDefinition Height = "40" />
+                                <RowDefinition Height = "40" />
+                               
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                            <Image Source=""/>
-                            <Label Name="nameLabel" Content="{Binding name}" Grid.Row="1"/>
-                            <Label Name="catLabel" Content="{Binding category}" Grid.Row="2"/>
-                            <Label Name="priceLabel" Content="{Binding price}" Grid.Row="3"/>
-                            <Image Name="imgPhoto" Stretch="Fill" Source="{Binding image}" Grid.Column="1" />
+                        
+                            <Image Name="imgPhoto" Stretch="Fill" Source="{Binding image}" Grid.Column="1" Grid.RowSpan="3" />
+                            <Border Background="White"  Margin="10,0,200,0" Width="150" BorderThickness="1" BorderBrush="Black"
+                                     Grid.Row="1"  Grid.RowSpan="2">
+                            <TextBlock TextAlignment="Left" Margin="10,0,0,0" FontWeight="Black" Name="nameLabel" Text="{Binding name}"/>
+                            </Border>
+                            <TextBlock TextAlignment="Left" FontWeight="Black" Margin="40,25,0,0" Name="catLabel" Text= "{Binding category}" Grid.Row="1"/>
+                            <TextBlock FontWeight="Black" TextAlignment="Left" Margin="40,10,0,0" Name="priceLabel" Text="{Binding price}" Grid.Row="2"/>
+                          
+                            
                         </Grid>
 
                     </DataTemplate>
