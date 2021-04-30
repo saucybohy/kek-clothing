@@ -40,7 +40,15 @@ namespace kek_clothing
             }
 
         }
+        public static int DeleteProduct(int id)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                return cnn.Execute("delete from products where id = @id", new { id = id });
+                // delete images from directory 
 
+            }
+        }
         private static string LoadConnectionString(string id = "Default")
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;

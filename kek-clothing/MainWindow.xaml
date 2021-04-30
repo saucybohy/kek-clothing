@@ -37,7 +37,7 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                        
+                            
                             <Image Name="imgPhoto" Stretch="Fill" Source="{Binding image}" Grid.Column="1" Grid.RowSpan="3" />
                             <Border Background="White"  Margin="10,0,200,0" Width="150" BorderThickness="1" BorderBrush="Black"
                                      Grid.Row="1"  Grid.RowSpan="2">
@@ -45,8 +45,8 @@
                             </Border>
                             <TextBlock TextAlignment="Left" FontWeight="Black" Margin="40,25,0,0" Name="catLabel" Text= "{Binding category}" Grid.Row="1"/>
                             <TextBlock FontWeight="Black" TextAlignment="Left" Margin="40,10,0,0" Name="priceLabel" Text="{Binding price}" Grid.Row="2"/>
-                          
-                            
+                            <Button Tag="{Binding id}" Content="delete" Width="100" Height="40" Margin="250,0,0,0" Grid.Row="2" Click="Button_Click_2"/>
+
                         </Grid>
 
                     </DataTemplate>
@@ -60,6 +60,7 @@
         </ScrollViewer>
         <Button Content="Refresh" Width="350" Click="Button_Click" Grid.Row="1" Margin="10,0,380,0" />
         <Button Grid.Row="1" Width="350" Margin="410,0,30,0" Content="Browse" Click="Button_Click_1"/>
+      
         <DockPanel Grid.Row="2" Margin="5,5">
             <Label Content="Name:" HorizontalContentAlignment="Right" Width="70"/>
             <TextBox x:Name="NameBox" Width="100"/>

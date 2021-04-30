@@ -72,6 +72,15 @@ namespace kek_clothing
                 directory = op.FileName;  
             }
         }
-      
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            
+            int id = int.Parse(((Button)sender).Tag.ToString());
+            if (SqliteDataAccess.DeleteProduct(id) > 0)
+            {
+                LoadProductList();
+            }
+        }
     }
 }
