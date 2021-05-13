@@ -17,9 +17,12 @@ using System.Windows.Shapes;
 
 namespace kek_clothing
 {
-
+  
     public partial class MainWindow : Window
     {
+        Page1 page1 = new Page1();
+      
+
         public ObservableCollection<ProductModel> products = new ObservableCollection<ProductModel>();
         string directory;
         public MainWindow()
@@ -81,6 +84,11 @@ namespace kek_clothing
             {
                 LoadProductList();
             }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = page1;
         }
     }
 }

@@ -58,9 +58,9 @@
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
         </ScrollViewer>
-        <Button Content="Refresh" Width="350" Click="Button_Click" Grid.Row="1" Margin="10,0,380,0" />
+        <Button Content="Refresh" Width="350" Click="Button_Click" Grid.Row="1" Margin="61,0,381,0" />
         <Button Grid.Row="1" Width="350" Margin="410,0,30,0" Content="Browse" Click="Button_Click_1"/>
-      
+        <Button Width="50" Height="50" Grid.Row="1" Margin="5,0,737,30" Grid.RowSpan="2" VerticalAlignment="Bottom" Click="Button_Click_3"/>
         <DockPanel Grid.Row="2" Margin="5,5">
             <Label Content="Name:" HorizontalContentAlignment="Right" Width="70"/>
             <TextBox x:Name="NameBox" Width="100"/>
@@ -70,6 +70,6 @@
             <TextBox x:Name="PriceBox" Width="100"/>
             <Button x:Name="SaveButton" Content="Save" Margin="30,0,0,0" Click="SaveButton_Click"/>
         </DockPanel>
-
+        <Frame Grid.RowSpan="3" x:Name="MainFrame"/>
     </Grid>
 </Window>
