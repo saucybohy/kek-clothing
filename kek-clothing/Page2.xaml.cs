@@ -20,33 +20,15 @@ namespace kek_clothing
     /// </summary>
     public partial class Page2 : Page
     {
-        Page3 page3 = new Page3();
-        Page4 page4 = new Page4();
-        Page5 page5 = new Page5();
-        Page6 page6 = new Page6();
+      
         public Page2()
         {
             InitializeComponent();
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Content = page3;
-        }
 
-        private void Page3_Click(object sender, RoutedEventArgs e)
+        private void HomeBut_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = page4;
+           
         }
-
-        private void Page4_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Content = page5;
-        }
-
-        private void Page5_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Content = page6;
-        }
-
     }
 }

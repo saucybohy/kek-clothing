@@ -90,5 +90,44 @@ namespace kek_clothing
         {
             MainFrame.Content = page1;
         }
+        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+
+        }
+
+        private void HomeBut_Click(object sender, RoutedEventArgs e)
+        {
+            ProductsTab.Height = new GridLength(1100, GridUnitType.Pixel);
+
+        }
+
+        private void Top_Button_Click(object sender, RoutedEventArgs e)
+        {
+            ProductsTab.Height = new GridLength(0, GridUnitType.Pixel);
+            Tops.Height = new GridLength(1100, GridUnitType.Pixel);
+        }
+
+        private void Page3_Click(object sender, RoutedEventArgs e)
+        {
+            ProductsTab.Height = new GridLength(0, GridUnitType.Pixel);
+            Bottoms.Height = new GridLength(1100, GridUnitType.Pixel);
+        }
+
+        private void Page4_Click(object sender, RoutedEventArgs e)
+        {
+            ProductsTab.Height = new GridLength(0, GridUnitType.Pixel);
+            Footwear.Height = new GridLength(1100, GridUnitType.Pixel);
+        }
+
+        private void Page5_Click(object sender, RoutedEventArgs e)
+        {
+            ProductsTab.Height = new GridLength(0, GridUnitType.Pixel);
+            Accessories.Height = new GridLength(1100, GridUnitType.Pixel);
+        }
+
+        private void MainFrame_Navigated_1(object sender, NavigationEventArgs e)
+        {
+
+        }
     }
 }

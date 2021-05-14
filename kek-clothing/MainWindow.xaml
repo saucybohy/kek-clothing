@@ -7,27 +7,32 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="1300" Width="800">
     <Window.Resources>
-
+      
     </Window.Resources>
 
-
+  
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
+             <RowDefinition Height="200"/>
+             <RowDefinition x:Name="ProductsTab" Height="1100"/> <!-- Categories -->
+             <RowDefinition x:Name="Tops" Height="0" /> <!-- Nav -->
+             <RowDefinition x:Name="AdminBut" Height="0" />
+             <RowDefinition x:Name="AdminInp" Height="0"/>
+             <RowDefinition Height="0" x:Name="Bottoms"/>
+             <RowDefinition Height="0" x:Name="Footwear"/>
+             <RowDefinition Height="0" x:Name="Accessories"/>
         </Grid.RowDefinitions>
 
         <!--<ListBox x:Name="listBox" ItemsSource="{Binding products}"/>-->
-        <ScrollViewer  Name="scrollViewer1" Margin="0,10,-30,30" Grid.RowSpan="2">
+        <ScrollViewer  Name="scrollViewer1" Margin="0,10,-30,30" Grid.Row="2" Grid.RowSpan="2">
             <ItemsControl x:Name="ProductGrid" ItemsSource="{Binding products}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate DataType = "{x:Type local:ProductModel}">
 
-                        <Grid Width="400" Height="400" Background="Beige" Margin="200,5,0,0">
+                        <Grid  Width="400" Height="400" Background="Beige" Margin="200,5,0,0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="300"/>
                                 <RowDefinition Height = "40" />
@@ -58,10 +63,10 @@
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
         </ScrollViewer>
-        <Button Content="Refresh" Width="350" Click="Button_Click" Grid.Row="1" Margin="61,0,381,0" />
-        <Button Grid.Row="1" Width="350" Margin="410,0,30,0" Content="Browse" Click="Button_Click_1"/>
-        <Button Width="50" Height="50" Grid.Row="1" Margin="5,0,737,30" Grid.RowSpan="2" VerticalAlignment="Bottom" Click="Button_Click_3"/>
-        <DockPanel Grid.Row="2" Margin="5,5">
+        <Button Content="Refresh" Width="350" Click="Button_Click" Grid.Row="3" Margin="61,0,381,0" />
+        <Button Grid.Row="3" Width="350" Margin="410,0,30,0" Content="Browse" Click="Button_Click_1"/>
+        <Button Width="50" Height="50" Grid.Row="3" Margin="5,0,737,30" VerticalAlignment="Bottom" Click="Button_Click_3"/>
+        <DockPanel Grid.Row="4" Margin="5,5">
             <Label Content="Name:" HorizontalContentAlignment="Right" Width="70"/>
             <TextBox x:Name="NameBox" Width="100"/>
             <Label Content="Category:" HorizontalContentAlignment="Right" Width="100"/>
@@ -70,6 +75,74 @@
             <TextBox x:Name="PriceBox" Width="100"/>
             <Button x:Name="SaveButton" Content="Save" Margin="30,0,0,0" Click="SaveButton_Click"/>
         </DockPanel>
+
+        <Grid Grid.Row="0"  Background="Pink">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200" />
+                <RowDefinition Height="1100"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="CartBut" Margin="535,15,30,30" BorderBrush="{x:Null}">
+                <Button.Background >
+                    <ImageBrush ImageSource="background/shopcart.png"/>
+                </Button.Background>
+
+            </Button>
+
+            <Button x:Name="HomeBut" Margin="0,20,575,30" Height="150" Width="150" BorderBrush="{x:Null}" Click="HomeBut_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="Untitled-1.png"/>
+                </Button.Background>
+            </Button>
+            <TextBlock
+            Margin="155,0,-5,0"
+            Foreground="Black"
+            Text="KEK" FontWeight="Black"
+            FontSize="120">
+                <TextBlock.RenderTransform>
+                    <TranslateTransform X="3" Y="3" />
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock
+            Margin="155,10,-5,1090"
+            Foreground="HotPink"
+             FontSize="120" FontWeight="Black"
+             Text="KEK " Grid.RowSpan="2"/>
+            <Image Grid.Row="1" Source="/background/Background KEK.jpg" />
+        </Grid>
+        <Grid Grid.Row="1" >
+            <Image Grid.Row="1" Source="/background/Background KEK.jpg" />
+                <Button Grid.Row="1" x:Name="Page4" BorderBrush="Black" BorderThickness="10" Background="Orange" Height="200" Width="500" Margin="10,455,240,445" Click="Page4_Click">
+
+                </Button>
+                <Button Grid.Row="1" x:Name="Page5" BorderBrush="Black" BorderThickness="10" Background="Yellow" Height="200" Width="500" Margin="240,655,10,245" Click="Page5_Click" >
+
+                </Button>
+                <Button Grid.Row="1" x:Name="Page3" BorderBrush="Black" BorderThickness="10" Height="200" Width="500" Margin="240,255,10,645" Click="Page3_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="background/BOTTOMS LOGO.PNG" Stretch="UniformToFill"/>
+                    </Button.Background>
+
+                </Button>
+                <Button Grid.Row="1" BorderBrush="Black" BorderThickness="10" Height="200" Width="500" Margin="10,55,240,845" Click=" Top_Button_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="background/TOPS LOGO.PNG"/>
+                    </Button.Background>
+
+                </Button>
+                <TextBlock Grid.Row="1" Foreground="Black" Height="100" Width="400" Text="TOPS"
+                           FontWeight="Black" FontSize="60" Margin="240,107,10,893"  />
+                <TextBlock Grid.Row="1" Foreground="Black" Height="100" Width="400" Text="BOTTOMS" 
+                           FontWeight="Black" FontSize="60" Margin="220,310,0,690" OpacityMask="Black" />
+                <TextBlock Height="100" Text="FOOTWEAR" 
+                           FontWeight="Black" FontSize="60" Margin="110,500,60,500" />
+                <TextBlock Height="100" Text="ACCESSORIES" 
+                           FontWeight="Black" FontSize="60" Margin="280,410,0,0" />
+                <!--background-->
+
+            </Grid>
+     
         <Frame Grid.RowSpan="3" x:Name="MainFrame"/>
     </Grid>
+    
 </Window>
