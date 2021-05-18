@@ -20,7 +20,6 @@ namespace kek_clothing
   
     public partial class MainWindow : Window
     {
-        Page1 page1 = new Page1();
       
 
         public ObservableCollection<ProductModel> products = new ObservableCollection<ProductModel>();
@@ -28,12 +27,12 @@ namespace kek_clothing
         public MainWindow()
         {
             InitializeComponent();
-            LoadProductList();
+          
         }
 
-        void LoadProductList()
+        void LoadProductList(string category)
         {
-            products = SqliteDataAccess.LoadProducts("tops");
+            products = SqliteDataAccess.LoadProducts(category);
             ProductGrid.ItemsSource = products;
         }
 
@@ -41,7 +40,7 @@ namespace kek_clothing
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            LoadProductList();
+     
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -58,7 +57,7 @@ namespace kek_clothing
             {
                 MessageBox.Show("Please enter a valid price");
             }
-            LoadProductList();
+          
         }
         
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -80,15 +79,12 @@ namespace kek_clothing
         {
             
             int id = int.Parse(((Button)sender).Tag.ToString());
-            if (SqliteDataAccess.DeleteProduct(id) > 0)
-            {
-                LoadProductList();
-            }
+          
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = page1;
+           
         }
         private void MainFrame_Navigated(object sender, NavigationEventArgs e)
         {
@@ -105,24 +101,32 @@ namespace kek_clothing
         {
             ProductsTab.Height = new GridLength(0, GridUnitType.Pixel);
             Tops.Height = new GridLength(1100, GridUnitType.Pixel);
+            products = SqliteDataAccess.LoadProducts("tops");
+            ProductGrid.ItemsSource = products;
         }
 
-        private void Page3_Click(object sender, RoutedEventArgs e)
+        private void Bottom_Click(object sender, RoutedEventArgs e)
         {
             ProductsTab.Height = new GridLength(0, GridUnitType.Pixel);
             Bottoms.Height = new GridLength(1100, GridUnitType.Pixel);
+            products = SqliteDataAccess.LoadProducts("bottoms");
+            ProductGrid.ItemsSource = products;
         }
 
-        private void Page4_Click(object sender, RoutedEventArgs e)
+        private void Footwear_Click(object sender, RoutedEventArgs e)
         {
             ProductsTab.Height = new GridLength(0, GridUnitType.Pixel);
             Footwear.Height = new GridLength(1100, GridUnitType.Pixel);
+            products = SqliteDataAccess.LoadProducts("footwear");
+            ProductGrid.ItemsSource = products;
         }
 
-        private void Page5_Click(object sender, RoutedEventArgs e)
+        private void Accesories_Click(object sender, RoutedEventArgs e)
         {
             ProductsTab.Height = new GridLength(0, GridUnitType.Pixel);
             Accessories.Height = new GridLength(1100, GridUnitType.Pixel);
+            products = SqliteDataAccess.LoadProducts("accesories");
+            ProductGrid.ItemsSource = products;
         }
 
         private void MainFrame_Navigated_1(object sender, NavigationEventArgs e)

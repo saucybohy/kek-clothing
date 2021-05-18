@@ -7,31 +7,36 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="1300" Width="800">
     <Window.Resources>
-      
+        
     </Window.Resources>
 
   
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Background KEK.jpg"/>
+        </Grid.Background>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-             <RowDefinition Height="200"/>
+             <RowDefinition Height="200"/> <!--0-->
              <RowDefinition x:Name="ProductsTab" Height="1100"/> <!-- Categories -->
              <RowDefinition x:Name="Tops" Height="0" /> <!-- Nav -->
              <RowDefinition x:Name="AdminBut" Height="0" />
              <RowDefinition x:Name="AdminInp" Height="0"/>
              <RowDefinition Height="0" x:Name="Bottoms"/>
              <RowDefinition Height="0" x:Name="Footwear"/>
-             <RowDefinition Height="0" x:Name="Accessories"/>
+             <RowDefinition Height="0" x:Name="Accessories"/>  <!--7-->
+          
         </Grid.RowDefinitions>
 
         <!--<ListBox x:Name="listBox" ItemsSource="{Binding products}"/>-->
+       <!--Input Data-->
         <ScrollViewer  Name="scrollViewer1" Margin="0,10,-30,30" Grid.Row="2" Grid.RowSpan="2">
             <ItemsControl x:Name="ProductGrid" ItemsSource="{Binding products}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate DataType = "{x:Type local:ProductModel}">
-
                         <Grid  Width="400" Height="400" Background="Beige" Margin="200,5,0,0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="300"/>
@@ -42,7 +47,8 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                            
+                          
+
                             <Image Name="imgPhoto" Stretch="Fill" Source="{Binding image}" Grid.Column="1" Grid.RowSpan="3" />
                             <Border Background="White"  Margin="10,0,200,0" Width="150" BorderThickness="1" BorderBrush="Black"
                                      Grid.Row="1"  Grid.RowSpan="2">
@@ -51,9 +57,9 @@
                             <TextBlock TextAlignment="Left" FontWeight="Black" Margin="40,25,0,0" Name="catLabel" Text= "{Binding category}" Grid.Row="1"/>
                             <TextBlock FontWeight="Black" TextAlignment="Left" Margin="40,10,0,0" Name="priceLabel" Text="{Binding price}" Grid.Row="2"/>
                             <Button Tag="{Binding id}" Content="delete" Width="100" Height="40" Margin="250,0,0,0" Grid.Row="2" Click="Button_Click_2"/>
-
+                          
                         </Grid>
-
+                     
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
                 <ItemsControl.ItemsPanel>
@@ -75,7 +81,7 @@
             <TextBox x:Name="PriceBox" Width="100"/>
             <Button x:Name="SaveButton" Content="Save" Margin="30,0,0,0" Click="SaveButton_Click"/>
         </DockPanel>
-
+        <!--menu bar-->
         <Grid Grid.Row="0"  Background="Pink">
 
             <Grid.RowDefinitions>
@@ -110,15 +116,16 @@
              Text="KEK " Grid.RowSpan="2"/>
             <Image Grid.Row="1" Source="/background/Background KEK.jpg" />
         </Grid>
+        <!--Products tab-->
         <Grid Grid.Row="1" >
             <Image Grid.Row="1" Source="/background/Background KEK.jpg" />
-                <Button Grid.Row="1" x:Name="Page4" BorderBrush="Black" BorderThickness="10" Background="Orange" Height="200" Width="500" Margin="10,455,240,445" Click="Page4_Click">
+                <Button Grid.Row="1" BorderBrush="Black" BorderThickness="10" Background="Orange" Height="200" Width="500" Margin="10,455,240,445" Click="Footwear_Click">
 
                 </Button>
-                <Button Grid.Row="1" x:Name="Page5" BorderBrush="Black" BorderThickness="10" Background="Yellow" Height="200" Width="500" Margin="240,655,10,245" Click="Page5_Click" >
+                <Button Grid.Row="1" BorderBrush="Black" BorderThickness="10" Background="Yellow" Height="200" Width="500" Margin="240,655,10,245" Click="Accesories_Click" >
 
                 </Button>
-                <Button Grid.Row="1" x:Name="Page3" BorderBrush="Black" BorderThickness="10" Height="200" Width="500" Margin="240,255,10,645" Click="Page3_Click" >
+                <Button Grid.Row="1"  BorderBrush="Black" BorderThickness="10" Height="200" Width="500" Margin="240,255,10,645" Click="Bottom_Click" >
                     <Button.Background>
                         <ImageBrush ImageSource="background/BOTTOMS LOGO.PNG" Stretch="UniformToFill"/>
                     </Button.Background>
@@ -141,8 +148,21 @@
                 <!--background-->
 
             </Grid>
-     
-        <Frame Grid.RowSpan="3" x:Name="MainFrame"/>
+        <!---->
+        <Grid Grid.Row="5">
+            <Image Source="/background/Background KEK.jpg" />
+        </Grid>
+        <!---->
+        <Grid Grid.Row="6">
+            <Image Source="/background/Background KEK.jpg" />
+
+        </Grid>
+        <!---->
+        <Grid Grid.Row="7">
+            <Image Source="/background/Background KEK.jpg" />
+
+        </Grid>
+    
     </Grid>
     
 </Window>

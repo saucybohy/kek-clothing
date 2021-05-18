@@ -15,11 +15,23 @@ namespace kek_clothing
     {
         public static ObservableCollection<ProductModel> LoadProducts(string category)
         {
-            using (IDbConnection cnn  = new SQLiteConnection(LoadConnectionString()))
+            if(category == "")
             {
-                var output = cnn.Query<ProductModel>("select * from products", new DynamicParameters());
-                return new ObservableCollection<ProductModel>(output.ToList());
+                using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+                {
+                    var output = cnn.Query<ProductModel>("select * from products", new DynamicParameters());
+                    return new ObservableCollection<ProductModel>(output.ToList());
+                }
             }
+            else
+            {
+                using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+                {
+                    var output = cnn.Query<ProductModel>("select * from products where category = @category", new { category = category });
+                    return new ObservableCollection<ProductModel>(output.ToList());
+                }
+            }
+            
         }
 
         public static void AddProduct(string name, string category, float price, string image)
