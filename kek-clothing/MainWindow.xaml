@@ -118,7 +118,7 @@
         </Grid>
         <!--Products tab-->
         <Grid Grid.Row="1" >
-            <Image Grid.Row="1" Source="/background/Background KEK.jpg" />
+           
                 <Button Grid.Row="1" BorderBrush="Black" BorderThickness="10" Background="Orange" Height="200" Width="500" Margin="10,455,240,445" Click="Footwear_Click">
 
                 </Button>
