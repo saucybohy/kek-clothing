@@ -5,35 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:kek_clothing"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1300" Width="800">
+        Title="KEK Clothing" Height="1300" Width="800" Icon="Untitled-1.png" ShowInTaskbar="False" WindowStyle="ToolWindow" 
+        >
     <Window.Resources>
-        
+
     </Window.Resources>
-
-  
+    <Window.Background>
+        <ImageBrush ImageSource="background/Background KEK.jpg"/>
+    </Window.Background>
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="Background KEK.jpg"/>
-        </Grid.Background>
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-             <RowDefinition Height="200"/> <!--0-->
-             <RowDefinition x:Name="ProductsTab" Height="1100"/> <!-- Categories -->
-             <RowDefinition x:Name="Tops" Height="0" /> <!-- Nav -->
-             <RowDefinition x:Name="AdminBut" Height="0" />
-             <RowDefinition x:Name="AdminInp" Height="0"/>
-             <RowDefinition Height="0" x:Name="Bottoms"/>
-             <RowDefinition Height="0" x:Name="Footwear"/>
-             <RowDefinition Height="0" x:Name="Accessories"/>  <!--7-->
-          
+            <RowDefinition Height="150"/>
+            <!--Home-->
+            <RowDefinition x:Name="Home" Height="1100"/>
+            <!-- Products -->
+            <RowDefinition x:Name="Products" Height="0" />
+            <!-- Admin -->
+            <RowDefinition x:Name="AdminBut" Height="0" />
+            <RowDefinition x:Name="AdminInp" Height="0"/>
         </Grid.RowDefinitions>
-
         <!--<ListBox x:Name="listBox" ItemsSource="{Binding products}"/>-->
-       <!--Input Data-->
+        <!---->
         <ScrollViewer  Name="scrollViewer1" Margin="0,10,-30,30" Grid.Row="2" Grid.RowSpan="2">
+
             <ItemsControl x:Name="ProductGrid" ItemsSource="{Binding products}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate DataType = "{x:Type local:ProductModel}">
@@ -42,24 +39,21 @@
                                 <RowDefinition Height="300"/>
                                 <RowDefinition Height = "40" />
                                 <RowDefinition Height = "40" />
-                               
                             </Grid.RowDefinitions>
+
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                          
 
                             <Image Name="imgPhoto" Stretch="Fill" Source="{Binding image}" Grid.Column="1" Grid.RowSpan="3" />
                             <Border Background="White"  Margin="10,0,200,0" Width="150" BorderThickness="1" BorderBrush="Black"
                                      Grid.Row="1"  Grid.RowSpan="2">
-                            <TextBlock TextAlignment="Left" Margin="10,0,0,0" FontWeight="Black" Name="nameLabel" Text="{Binding name}"/>
+                                <TextBlock TextAlignment="Left" Margin="10,0,0,0" FontWeight="Black" Name="nameLabel" Text="{Binding name}"/>
                             </Border>
                             <TextBlock TextAlignment="Left" FontWeight="Black" Margin="40,25,0,0" Name="catLabel" Text= "{Binding category}" Grid.Row="1"/>
                             <TextBlock FontWeight="Black" TextAlignment="Left" Margin="40,10,0,0" Name="priceLabel" Text="{Binding price}" Grid.Row="2"/>
                             <Button Tag="{Binding id}" Content="delete" Width="100" Height="40" Margin="250,0,0,0" Grid.Row="2" Click="Button_Click_2"/>
-                          
                         </Grid>
-                     
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
                 <ItemsControl.ItemsPanel>
@@ -68,10 +62,10 @@
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
+
         </ScrollViewer>
-        <Button Content="Refresh" Width="350" Click="Button_Click" Grid.Row="3" Margin="61,0,381,0" />
+        <!--Admin-->
         <Button Grid.Row="3" Width="350" Margin="410,0,30,0" Content="Browse" Click="Button_Click_1"/>
-        <Button Width="50" Height="50" Grid.Row="3" Margin="5,0,737,30" VerticalAlignment="Bottom" Click="Button_Click_3"/>
         <DockPanel Grid.Row="4" Margin="5,5">
             <Label Content="Name:" HorizontalContentAlignment="Right" Width="70"/>
             <TextBox x:Name="NameBox" Width="100"/>
@@ -88,41 +82,55 @@
                 <RowDefinition Height="200" />
                 <RowDefinition Height="1100"/>
             </Grid.RowDefinitions>
-            <Button x:Name="CartBut" Margin="535,15,30,30" BorderBrush="{x:Null}">
+            <Button x:Name="CartBut" Margin="595,10,10,50" BorderBrush="{x:Null}" Click="Admin">
                 <Button.Background >
                     <ImageBrush ImageSource="background/shopcart.png"/>
                 </Button.Background>
 
             </Button>
 
-            <Button x:Name="HomeBut" Margin="0,20,575,30" Height="150" Width="150" BorderBrush="{x:Null}" Click="HomeBut_Click">
+            <Button Margin="21,12,642,59" BorderBrush="{x:Null}" Click="HomeBut_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Untitled-1.png"/>
                 </Button.Background>
             </Button>
             <TextBlock
-            Margin="155,0,-5,0"
+            Margin="155,0,237,0"
             Foreground="Black"
             Text="KEK" FontWeight="Black"
-            FontSize="120">
+            FontSize="120" Width="400">
                 <TextBlock.RenderTransform>
                     <TranslateTransform X="3" Y="3" />
                 </TextBlock.RenderTransform>
             </TextBlock>
             <TextBlock
-            Margin="155,10,-5,1090"
+            Margin="155,10,237,1090"
             Foreground="HotPink"
              FontSize="120" FontWeight="Black"
-             Text="KEK " Grid.RowSpan="2"/>
-            <Image Grid.Row="1" Source="/background/Background KEK.jpg" />
+             Text="KEK " Grid.RowSpan="2" Width="400"/>
+
         </Grid>
+<<<<<<< HEAD
         <!--Products tab-->
         <Grid Grid.Row="1" >
            
                 <Button Grid.Row="1" BorderBrush="Black" BorderThickness="10" Background="Orange" Height="200" Width="500" Margin="10,455,240,445" Click="Footwear_Click">
+=======
+        <!--Home-->
+        <ScrollViewer Margin="0,159,-30,81" Grid.RowSpan="2">
+            <Grid Grid.Row="1" >
+
+                <Button Grid.Row="1" BorderBrush="Black" BorderThickness="10" Height="200" Width="500" Margin="10,455,240,445" Click="Footwear_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="background/Bal Crocs.jpg" Stretch="UniformToFill"/>
+                    </Button.Background>
+>>>>>>> 13f4ae208440988bf8ed130d9bdf0df2c5be7f26
 
                 </Button>
-                <Button Grid.Row="1" BorderBrush="Black" BorderThickness="10" Background="Yellow" Height="200" Width="500" Margin="240,655,10,245" Click="Accesories_Click" >
+                <Button Grid.Row="1" BorderBrush="Black" BorderThickness="10" Height="200" Width="500" Margin="240,655,10,245" Click="Accesories_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="background/unnamed.jpg" Stretch="UniformToFill"/>
+                    </Button.Background>
 
                 </Button>
                 <Button Grid.Row="1"  BorderBrush="Black" BorderThickness="10" Height="200" Width="500" Margin="240,255,10,645" Click="Bottom_Click" >
@@ -145,24 +153,7 @@
                            FontWeight="Black" FontSize="60" Margin="110,500,60,500" />
                 <TextBlock Height="100" Text="ACCESSORIES" 
                            FontWeight="Black" FontSize="60" Margin="280,410,0,0" />
-                <!--background-->
-
             </Grid>
-        <!---->
-        <Grid Grid.Row="5">
-            <Image Source="/background/Background KEK.jpg" />
-        </Grid>
-        <!---->
-        <Grid Grid.Row="6">
-            <Image Source="/background/Background KEK.jpg" />
-
-        </Grid>
-        <!---->
-        <Grid Grid.Row="7">
-            <Image Source="/background/Background KEK.jpg" />
-
-        </Grid>
-    
+        </ScrollViewer>
     </Grid>
-    
 </Window>
