@@ -29,7 +29,7 @@
         </Grid.RowDefinitions>
         <!--<ListBox x:Name="listBox" ItemsSource="{Binding products}"/>-->
         <!---->
-        <ScrollViewer  Name="scrollViewer1" Margin="0,10,-30,30" Grid.Row="2" Grid.RowSpan="2">
+        <ScrollViewer Height="800" Name="scrollViewer1" Margin="0,-220,-30,30" Grid.Row="2" Grid.RowSpan="2">
             <ItemsControl x:Name="ProductGrid" ItemsSource="{Binding products}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate DataType = "{x:Type local:ProductModel}">
@@ -81,14 +81,14 @@
                 <RowDefinition Height="200" />
                 <RowDefinition Height="1100"/>
             </Grid.RowDefinitions>
-            <Button x:Name="CartBut" Margin="595,10,10,50" BorderBrush="{x:Null}" Click="Admin">
+            <Button  x:Name="CartBut" Margin="600,0,0,50" Height="150" Width="150" BorderBrush="{x:Null}" Click="Admin">
                 <Button.Background >
                     <ImageBrush ImageSource="background/shopcart.png"/>
                 </Button.Background>
 
             </Button>
 
-            <Button Margin="21,12,642,59" BorderBrush="{x:Null}" Click="HomeBut_Click">
+            <Button Height="150" Width="150" Margin="0,0,600,50" BorderBrush="{x:Null}" Click="HomeBut_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Untitled-1.png"/>
                 </Button.Background>
@@ -110,7 +110,7 @@
 
         </Grid>
 
-            <!--Home-->
+        <!--Home-->
         <ScrollViewer Margin="0,159,-30,81" Grid.RowSpan="2">
             <Grid Grid.Row="1" >
 
@@ -143,12 +143,13 @@
                            FontWeight="Black" FontSize="60" Margin="240,107,10,893"  />
                 <TextBlock Grid.Row="1" Foreground="Black" Height="100" Width="400" Text="BOTTOMS" 
                            FontWeight="Black" FontSize="60" Margin="220,310,0,690" OpacityMask="Black" />
-                <TextBlock Height="100" Text="FOOTWEAR" 
-                           FontWeight="Black" FontSize="60" Margin="110,500,60,500" />
-                <TextBlock Height="100" Text="ACCESSORIES" 
-                           FontWeight="Black" FontSize="60" Margin="280,410,0,0" />
+                <TextBlock Foreground="Black" Height="100" Width="400" Text="FOOTWEAR"
+                           FontWeight="Black" FontSize="60" Margin="138,512,267,488"  />
+                <TextBlock Foreground="Black" Height="100" Width="400" Text="ACCESSORIES" 
+                           FontWeight="Black" FontSize="60" Margin="318,716,87,284" OpacityMask="Black" />
+
             </Grid>
-        
+
         </ScrollViewer>
     </Grid>
 </Window>
