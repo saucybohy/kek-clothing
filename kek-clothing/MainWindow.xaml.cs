@@ -24,14 +24,14 @@ namespace kek_clothing
 
         public ObservableCollection<ProductModel> products = new ObservableCollection<ProductModel>();
         string directory;
-        string category;
+        bool admin = false;
         public MainWindow()
         {
             InitializeComponent();
           
         }
 
-        void LoadProductList()
+        void LoadProductList(string category)
         {
             products = SqliteDataAccess.LoadProducts(category);
             ProductGrid.ItemsSource = products;
@@ -52,10 +52,11 @@ namespace kek_clothing
             {
                 MessageBox.Show("Please enter a valid price");
             }
+            LoadProductList("");
           
         }
         
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Browse_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog op = new OpenFileDialog();
             op.Title = "Select a picture";
@@ -70,13 +71,16 @@ namespace kek_clothing
             }
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Delete_Click(object sender, RoutedEventArgs e)
         {   
-            int id = int.Parse(((Button)sender).Tag.ToString());
-            if (SqliteDataAccess.DeleteProduct(id) > 0)
-            {
-                LoadProductList();
-            }
+           if(admin == true) 
+           { 
+                int id = int.Parse(((Button)sender).Tag.ToString());
+                if (SqliteDataAccess.DeleteProduct(id) > 0)
+                {
+                    LoadProductList("");
+                }
+           }
         }
         private void HomeBut_Click(object sender, RoutedEventArgs e)
         {
@@ -84,16 +88,18 @@ namespace kek_clothing
             AdminInp.Height = new GridLength(0, GridUnitType.Pixel);
             AdminBut.Height = new GridLength(0, GridUnitType.Pixel);
             Products.Height = new GridLength(0, GridUnitType.Pixel);
+            admin = false;
         }
 
         private void Top_Button_Click(object sender, RoutedEventArgs e)
         {
+                      
             Home.Height = new GridLength(0, GridUnitType.Pixel);
             Products.Height = new GridLength(1100, GridUnitType.Pixel);
             AdminInp.Height = new GridLength(0, GridUnitType.Pixel);
             AdminBut.Height = new GridLength(0, GridUnitType.Pixel);
-            products = SqliteDataAccess.LoadProducts("tops");
-            ProductGrid.ItemsSource = products;
+            LoadProductList("tops");
+            admin = false;
         }
 
         private void Bottom_Click(object sender, RoutedEventArgs e)
@@ -102,8 +108,8 @@ namespace kek_clothing
             Products.Height = new GridLength(1100, GridUnitType.Pixel);
             AdminInp.Height = new GridLength(0, GridUnitType.Pixel);
             AdminBut.Height = new GridLength(0, GridUnitType.Pixel);
-            products = SqliteDataAccess.LoadProducts("bottoms");
-            ProductGrid.ItemsSource = products;
+            LoadProductList("bottoms");
+            admin = false;
         }
 
         private void Footwear_Click(object sender, RoutedEventArgs e)
@@ -112,8 +118,8 @@ namespace kek_clothing
             Products.Height = new GridLength(1100, GridUnitType.Pixel);
             AdminInp.Height = new GridLength(0, GridUnitType.Pixel);
             AdminBut.Height = new GridLength(0, GridUnitType.Pixel);
-            products = SqliteDataAccess.LoadProducts("footwear");
-            ProductGrid.ItemsSource = products;
+            LoadProductList("footwear");
+            admin = false;
         }
 
         private void Accesories_Click(object sender, RoutedEventArgs e)
@@ -122,18 +128,17 @@ namespace kek_clothing
             Products.Height = new GridLength(1100, GridUnitType.Pixel);
             AdminInp.Height = new GridLength(0, GridUnitType.Pixel);
             AdminBut.Height = new GridLength(0, GridUnitType.Pixel);
-            products = SqliteDataAccess.LoadProducts("accesories");
-            ProductGrid.ItemsSource = products;
+            LoadProductList("accesories");
+            admin = false;
         }
         private void Admin(object sender, RoutedEventArgs e)
         {
-            
+            admin = true;
             AdminInp.Height = new GridLength(100, GridUnitType.Pixel);
             AdminBut.Height = new GridLength(100, GridUnitType.Pixel);
             Products.Height = new GridLength(600, GridUnitType.Pixel);
             Home.Height = new GridLength(0, GridUnitType.Pixel);
-            products = SqliteDataAccess.LoadProducts("bottoms");
-            ProductGrid.ItemsSource = products;
+            LoadProductList("");
 
         }
     }
