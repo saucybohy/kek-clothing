@@ -30,14 +30,14 @@ namespace kek_clothing
             InitializeComponent();
           
         }
-
+    // loads the products 
         void LoadProductList(string category)
         {
             products = SqliteDataAccess.LoadProducts(category);
             ProductGrid.ItemsSource = products;
            
         }
-
+    // the save button gets all the inputed info and saves it
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
 
@@ -55,7 +55,7 @@ namespace kek_clothing
             LoadProductList("");
           
         }
-        
+    // browse button gets an image with .jpeg, .png etc then shows a message box to confrm it got the right image then converts to a string    
         private void Browse_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog op = new OpenFileDialog();
@@ -71,6 +71,7 @@ namespace kek_clothing
             }
         }
 
+    // delete button waits on the admin bool to be set to true then deletes whatever product the button is on then refreshes the page to show that the product has been deleted 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {   
            if(admin == true) 
@@ -82,6 +83,9 @@ namespace kek_clothing
                 }
            }
         }
+    // each button bellow sets the deserved row to the correct size and the others to 0 
+    // each button sets the admin bool to false unless its the admin button which sets it to true this is so the delete button only works on the admin page
+    // the category buttons also filter out the desvered product eg tops will only load up tops
         private void HomeBut_Click(object sender, RoutedEventArgs e)
         {
             Home.Height = new GridLength(1100, GridUnitType.Pixel);
