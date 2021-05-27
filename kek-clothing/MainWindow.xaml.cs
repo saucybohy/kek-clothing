@@ -92,6 +92,7 @@ namespace kek_clothing
             AdminInp.Height = new GridLength(0, GridUnitType.Pixel);
             AdminBut.Height = new GridLength(0, GridUnitType.Pixel);
             Products.Height = new GridLength(0, GridUnitType.Pixel);
+            LoadProductList("*");
             admin = false;
         }
 
@@ -132,7 +133,7 @@ namespace kek_clothing
             Products.Height = new GridLength(1100, GridUnitType.Pixel);
             AdminInp.Height = new GridLength(0, GridUnitType.Pixel);
             AdminBut.Height = new GridLength(0, GridUnitType.Pixel);
-            LoadProductList("accesories");
+            LoadProductList("accessories");
             admin = false;
         }
         private void Admin(object sender, RoutedEventArgs e)

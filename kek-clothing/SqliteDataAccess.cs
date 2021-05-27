@@ -31,9 +31,7 @@ namespace kek_clothing
                     return new ObservableCollection<ProductModel>(output.ToList());
                 }
             }
-            
         }
-
         public static void AddProduct(string name, string category, float price, string image)
         {
             ProductModel product = new ProductModel();
@@ -43,22 +41,18 @@ namespace kek_clothing
             product.image = image;
             SaveProduct(product);
         }
-
         public static void SaveProduct(ProductModel product)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 cnn.Execute("insert into products (name, category, price, image) values (@name, @category, @price, @image)", product);
             }
-
         }
         public static int DeleteProduct(int id)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 return cnn.Execute("delete from products where id = @id", new { id = id });
-                // delete images from directory 
-
             }
         }
         private static string LoadConnectionString(string id = "Default")

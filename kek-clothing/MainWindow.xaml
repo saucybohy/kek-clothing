@@ -29,7 +29,7 @@
         </Grid.RowDefinitions>
         <!--<ListBox x:Name="listBox" ItemsSource="{Binding products}"/>-->
         <!---->
-        <ScrollViewer Height="800" Name="scrollViewer1" Margin="0,-220,-30,30" Grid.Row="2" Grid.RowSpan="2">
+        <ScrollViewer Height="900" Name="scrollViewer1" Margin="0,-220,-30,30" Grid.Row="2" Grid.RowSpan="2">
             <ItemsControl x:Name="ProductGrid" ItemsSource="{Binding products}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate DataType = "{x:Type local:ProductModel}">
@@ -88,13 +88,14 @@
 
             </Button>
 
-            <Button Height="150" Width="150" Margin="0,0,600,50" BorderBrush="{x:Null}" Click="HomeBut_Click">
+            <Button Margin="30,0,648,86" BorderBrush="{x:Null}"  Click="HomeBut_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Untitled-1.png"/>
                 </Button.Background>
             </Button>
+            <TextBlock Text="HOME" FontWeight="Black" FontSize="50" Margin="10,100,0,0"/>
             <TextBlock
-            Margin="155,0,237,0"
+            Margin="181,0,211,0"
             Foreground="Black"
             Text="KEK" FontWeight="Black"
             FontSize="120" Width="400">
@@ -103,7 +104,7 @@
                 </TextBlock.RenderTransform>
             </TextBlock>
             <TextBlock
-            Margin="155,10,237,1090"
+            Margin="181,10,211,1090"
             Foreground="HotPink"
              FontSize="120" FontWeight="Black"
              Text="KEK " Grid.RowSpan="2" Width="400"/>
@@ -111,7 +112,7 @@
         </Grid>
 
         <!--Home-->
-        <ScrollViewer Margin="0,159,-30,81" Grid.RowSpan="2">
+        <ScrollViewer Margin="0,8,-30,9" Grid.Row="1">
             <Grid Grid.Row="1" >
 
                 <Button Grid.Row="1" BorderBrush="Black" BorderThickness="10" Height="200" Width="500" Margin="10,455,240,445" Click="Footwear_Click">
