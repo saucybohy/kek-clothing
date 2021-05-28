@@ -93,7 +93,7 @@
                     <ImageBrush ImageSource="Untitled-1.png"/>
                 </Button.Background>
             </Button>
-            <TextBlock Text="HOME" FontWeight="Black" FontSize="50" Margin="10,100,0,0"/>
+            <TextBlock Text="HOME" FontWeight="Black" FontSize="45" Margin="10,100,0,0"/>
             <TextBlock
             Margin="181,0,211,0"
             Foreground="Black"
